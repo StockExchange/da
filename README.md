@@ -27,13 +27,13 @@ namespace StockExchange
         {
             UserId = textBox1.Text;
             PassWord = textBox2.Text;
+            
             UserType = controller.LoginCheck(UserId, PassWord);
 
-            if (UserType == null)
-            {
-                UserType = "Login failed";
-                textBox3.Text = UserType;
 
+            if (UserType == null) 
+            {
+                textBox3.Text = controller.ErrorMessage();
             }
             else
             {
@@ -64,6 +64,11 @@ namespace StockExchange
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (controller.GetSocks())
         }
     }
 }
